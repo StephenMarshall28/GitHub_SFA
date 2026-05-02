@@ -1,4 +1,4 @@
-
+// SFA-2: Smart Farming Assistant main menu and interface implementation
 const inputItem = items[0].json;
 const html = $input.first().json.data 
 
