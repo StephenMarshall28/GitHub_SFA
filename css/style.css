@@ -288,121 +288,7 @@ footer {
     font-size:32px;
 }
 
-/* CONTENT */
-.section p{
-    margin:0;
-    padding:25px;
-    font-size:20px;
-    line-height:1.8;
-    color:rgb(42 53 79);
-    
-}
 
-.section.benefit h2{
-    background:#3689b3; /* dark green */
-}
-
-.bulletlist{
-    margin:0;
-    padding:25px 25px 25px 45px;
-    font-size:20px;
-    line-height:1.8;
-    color:rgb(42 53 79);
-}
-
-.bulletlist li{
-    margin-bottom:10px;
-}
-
-.section.whatyoucando h2{
-    background:#314158; /* dark green */
-}
-
-.section.care h2{
-    background:#2e834d; /* normal green */
-}
-
-.section.info h2{
-    background:#3b82f6; /* blue */
-}
-
-.section.warning h2{
-    background:#f59e0b; /* orange */
-}
-
-.problem-list{
-    padding:25px;
-}
-
-.problem-item{
-    background:#fff7ed;
-    border-left:5px solid #f59e0b;
-    padding:18px;
-    margin-bottom:15px;
-    border-radius:12px;
-}
-
-.problem-item h3{
-    margin:0 0 10px;
-    font-size:24px;
-    color:rgb(42 53 79);
-}
-
-.problem-item p{
-    margin:0;
-    padding:0;
-    font-size:18px;
-    line-height:1.7;
-}
-
-.plant-gallery{
-    max-width:1123px;
-    margin:30px auto;
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);   /* 3 per row */
-    gap:25px;
-}
-
-.plant-card{
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    transition:0.3s ease;
-    border:2px solid rgba(46,131,77,0.08);
-}
-
-.plant-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 14px 28px rgba(0,0,0,0.12);
-}
-
-.plant-card img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-}
-
-.plant-card h3{
-    font-size:24px;
-    color:rgb(42 53 79);
-    padding:15px 18px 5px;
-    margin:0;
-}
-
-.plant-card p{
-    font-size:17px;
-    color:rgb(42 53 79);
-    padding:0 18px 18px;
-    line-height:1.6;
-    margin:0;
-}
-
-.plant-link {
-    text-decoration: none;
-    color:inherit;
-    display:block;
-}
 
 /* Tablet */
 @media(max-width:900px){
@@ -421,55 +307,11 @@ footer {
 
 
 /*HOW TO PLANT SECTION ORDERED LIST*/
-.plantsteps{
-    margin:0;
-    padding:25px 45px 30px;
-    font-size:20px;
-    line-height:1.8;
-    color:rgb(42 53 79);
-}
 
-.plantsteps li{
-    margin-bottom:12px;
-}
-
-.plantsteps li::marker{
-    color:#2e834d;
-    font-weight:bold;
-}
 /*HOW TO PLANT SECTION ORDERED LIST END*/
 
 
-table{
-    width:90%;
-    margin:auto;
-    border-collapse:collapse;
-    background:white;
-    margin-bottom:40px;
-    max-width: 1100px;
-    margin: 0 auto 60px; 
-    }
-    
-    th,td{
-    border:1px solid #ccc;
-    padding:12px;
-    text-align:center;
-    }
-    
-    th{
-    background:#2e8b57;
-    color:white;
-    
-    }
-    
-    tr:nth-child(even){
-    background:#f2f2f2;
-    }
 
-    .table-container{
-        width: 100%;
-        overflow-x: auto; /* 🔥 allows horizontal scroll */
-    }
 
 
 
