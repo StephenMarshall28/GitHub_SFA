@@ -22,11 +22,11 @@
                     <nav>
                         <a href="index.html">🏡Home</a>
                         <a href="indoorplants.html">🪴Indoor Plants</a>
-                        <a href="#">🌿Outdoor Plants</a>
-                        <a href="#">🌻Flowers</a>
-                        <a href="ourdatabase.html" class="active">💾Our Database</a>
-                        <a href="#">🔎Check Your Plant</a>
-                        <a href="#">👨🏻‍💼Admin</a>
+                        <a href="outdoorplants.html">🌿Outdoor Plants</a>
+                        <a href="flowers.html">🌻Flowers</a>
+                        <a href="ourdatabase.php" class="active">💾Our Database</a>
+                        <a href="checkyourplant.html">🔎Check Your Plant</a>
+                        <a href="admin.php">👨🏻‍💼Admin</a>
                     </nav>
             </div>
 
@@ -36,15 +36,15 @@
 
             <div class="para1">
     
-                <p>The database on this platform is designed to make it easier for users to access important contacts and resources within the farming community. It provides information that helps people connect with other food growers, retailers, fertilizer suppliers, and farming equipment sellers in one convenient place. By bringing these resources together, the database supports better communication, easier business opportunities, and faster access to the products or services needed for successful farming. This feature is created to help users build useful connections, expand their farming network, and grow their agricultural activities more efficiently.</p>
+                <p>The database on this platform is designed to make it easier for users to access important contacts and resources within the farming community. It provides information that helps people connect with other food growers, plant growers, retailers, fertilizer suppliers, and farming equipment sellers in one convenient place. By bringing these resources together, the database supports better communication, easier business opportunities, and faster access to the products or services needed for successful farming. This feature is created to help users build useful connections, expand their farming network, and grow their agricultural activities more efficiently.</p>
             </div>
 
              <div class="submsg2">
                 <h2>Local Food Producers Database</h2>
             </div>
 
-            <div class="table-container">
-                    <table>
+            <div class="public-table-container">
+                    <table class="public-table">
                         <tr>
                             
                             <th>Business Name</th>
@@ -76,11 +76,11 @@
             </div>
 
                     <div class="submsg2">
-                        <h2>Local Florist Database</h2>
+                        <h2>Local Plantgrowers & Florist Database</h2>
                     </div>
 
-            <div class="table-container">
-                    <table>
+            <div class="public-table-container">
+                    <table class="public-table">
                         <tr>
                             
                             <th>Business Name</th>
@@ -118,8 +118,8 @@
                         <h2>Fertilizer Database</h2>
                     </div>
 
-            <div class="table-container">
-                    <table>
+            <div class="public-table-container">
+                     <table class="public-table">
                         <tr>
                             <th>Business Name</th>
                             <th>Product</th>
@@ -156,8 +156,8 @@
                     </div>
 
 
-            <div class="table-container">
-                    <table>
+            <div class="public-table-container">
+                    <table class="public-table">
                         <tr>
                             <th>Business Name</th>
                             <th>Product</th>
@@ -193,8 +193,8 @@
                     </div>
 
 
-            <div class="table-container">
-                    <table>
+            <div class="public-table-container">
+                    <table class="public-table">
                         <tr>
                             <th>Business Name</th>
                             <th>Product</th>
@@ -230,7 +230,7 @@
 </body>
 
 <footer>
-    <div class="copyrightinfo"><p>&copy; Copyright of Smart Farming Assistant</p></div>
+<div class="copyrightinfo"><p>&copy; Copyright of Smart Farming Assistant 2026</p></div>
 </footer>
 
 
