@@ -57,6 +57,7 @@
                         <?php
                             require_once __DIR__ . '/db.php';
 $conn = getDbConnection();
+
 $createTable = "CREATE TABLE IF NOT EXISTS smartfarmdatabase (
     id INT AUTO_INCREMENT PRIMARY KEY,
     business_name VARCHAR(255),
@@ -78,6 +79,7 @@ WHERE NOT EXISTS (
     SELECT business_name FROM smartfarmdatabase WHERE business_name='Green Valley Farm'
 ) LIMIT 1";
 mysqli_query($conn, $insertData);
+
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='LOCAL'";
                             $result = mysqli_query($conn,$sql);
 
