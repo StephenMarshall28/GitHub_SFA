@@ -88,7 +88,7 @@ mysqli_query($conn, $insertData);
                                         echo "<tr>
                                             
                                             <td>{$row['business_name']}</td>
-                                            <td>{$row['produce']}</td>
+                                            <td>{$row['product']}</td>
                                             <td>{$row['state_district']}</td>
                                             <td>{$row['contact']}</td>
                                             <td>{$row['email']}</td>
