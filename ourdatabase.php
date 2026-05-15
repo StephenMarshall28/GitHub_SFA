@@ -84,9 +84,7 @@ mysqli_query($conn, $createTable);
 
 $insertData = "INSERT INTO smartfarmdatabase
 (business_name, produce, product, business_type, state_district, contact, email, category)
-
-SELECT * FROM (
-    SELECT
+SELECT
     'Green Valley Farm',
     'Vegetables',
     'Vegetables',
@@ -95,14 +93,12 @@ SELECT * FROM (
     '0123456789',
     'green@farm.com',
     'LOCAL'
-) AS tmp
-
 WHERE NOT EXISTS (
-    SELECT business_name FROM smartfarmdatabase WHERE business_name='Green Valley Farm'
+    SELECT 1 FROM smartfarmdatabase WHERE business_name='Green Valley Farm'
 )
-
 LIMIT 1";
 mysqli_query($conn, $insertData);
+
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='LOCAL'";
                             $result = mysqli_query($conn,$sql);
