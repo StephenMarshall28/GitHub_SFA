@@ -1,5 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost","root","","smartfarm");
+require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
 if(isset($_POST['reset']))
 {
@@ -71,7 +72,8 @@ if(isset($_POST['reset']))
                                 </tr>
 
                         <?php
-                        $conn = mysqli_connect("localhost","root","","smartfarm");
+                        require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
                         $sql = "SELECT * FROM smartfarmdatabase";
                         $result = mysqli_query($conn,$sql);

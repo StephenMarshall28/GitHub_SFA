@@ -107,24 +107,40 @@
                 </script>
 
 <script>
-    document.getElementById("uploadForm").addEventListener("submit", function(e){
+    document.getElementById("uploadForm").addEventListener("submit", async function(e){
         e.preventDefault();
-    
-        document.getElementById("resultBox").style.display = "block";
-        document.getElementById("resultText").innerText = "Analyzing your plant...";
-    
-        // Simulate AI response
 
-        /*
-        Replace the “simulate” part with:
-        PHP backend (upload.php)
-        Send image to API
-        Return response via AJAX
-        */
-        setTimeout(()=>{
-            document.getElementById("resultText").innerText =
-            "🌱 Your plant looks healthy! Slight yellowing may indicate overwatering. Ensure proper drainage and moderate sunlight.";
-        }, 2000);
+        const file = fileInput.files[0];
+        const resultBox = document.getElementById("resultBox");
+        const resultText = document.getElementById("resultText");
+
+        if (!file) {
+            alert("Please upload a plant image first.");
+            return;
+        }
+
+        resultBox.style.display = "block";
+        resultText.innerText = "Analyzing your plant with AI... Please wait.";
+
+        const formData = new FormData();
+        formData.append("image", file);
+
+        try {
+            const response = await fetch("analyze_plant.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.error || "Unable to analyze the plant image.");
+            }
+
+            resultText.innerText = data.analysis;
+        } catch (error) {
+            resultText.innerText = "Error: " + error.message;
+        }
     });
     </script>
 
