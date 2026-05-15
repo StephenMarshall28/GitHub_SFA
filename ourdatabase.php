@@ -69,8 +69,17 @@ $createTable = "CREATE TABLE IF NOT EXISTS smartfarmdatabase (
     email VARCHAR(255),
     category VARCHAR(255)
 )";
-mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN IF NOT EXISTS produce VARCHAR(255)");
-mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN IF NOT EXISTS product VARCHAR(255)");
+
+$checkProduce = mysqli_query($conn, "SHOW COLUMNS FROM smartfarmdatabase LIKE 'produce'");
+if (mysqli_num_rows($checkProduce) == 0) {
+    mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN produce VARCHAR(255)");
+}
+
+$checkProduct = mysqli_query($conn, "SHOW COLUMNS FROM smartfarmdatabase LIKE 'product'");
+if (mysqli_num_rows($checkProduct) == 0) {
+    mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN product VARCHAR(255)");
+}
+}
 mysqli_query($conn, $createTable);
 
 $insertData = "INSERT INTO smartfarmdatabase
