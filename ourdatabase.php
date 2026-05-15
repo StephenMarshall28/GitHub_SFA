@@ -61,6 +61,7 @@ $conn = getDbConnection();
 $createTable = "CREATE TABLE IF NOT EXISTS smartfarmdatabase (
     id INT AUTO_INCREMENT PRIMARY KEY,
     business_name VARCHAR(255),
+    produce VARCHAR(255),
     product VARCHAR(255),
     business_type VARCHAR(255),
     state_district VARCHAR(255),
@@ -68,16 +69,30 @@ $createTable = "CREATE TABLE IF NOT EXISTS smartfarmdatabase (
     email VARCHAR(255),
     category VARCHAR(255)
 )";
+mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN IF NOT EXISTS produce VARCHAR(255)");
+mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN IF NOT EXISTS product VARCHAR(255)");
 mysqli_query($conn, $createTable);
 
 $insertData = "INSERT INTO smartfarmdatabase
-(business_name, product, business_type, state_district, contact, email, category)
+(business_name, produce, product, business_type, state_district, contact, email, category)
+
 SELECT * FROM (
-    SELECT 'Green Valley Farm', 'Vegetables', 'Local Producer', 'Johor Bahru', '0123456789', 'green@farm.com', 'LOCAL'
+    SELECT
+    'Green Valley Farm',
+    'Vegetables',
+    'Vegetables',
+    'Local Producer',
+    'Johor Bahru',
+    '0123456789',
+    'green@farm.com',
+    'LOCAL'
 ) AS tmp
+
 WHERE NOT EXISTS (
     SELECT business_name FROM smartfarmdatabase WHERE business_name='Green Valley Farm'
-) LIMIT 1";
+)
+
+LIMIT 1";
 mysqli_query($conn, $insertData);
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='LOCAL'";
