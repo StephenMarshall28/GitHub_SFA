@@ -79,7 +79,7 @@ $checkProduct = mysqli_query($conn, "SHOW COLUMNS FROM smartfarmdatabase LIKE 'p
 if (mysqli_num_rows($checkProduct) == 0) {
     mysqli_query($conn, "ALTER TABLE smartfarmdatabase ADD COLUMN product VARCHAR(255)");
 }
-}
+
 mysqli_query($conn, $createTable);
 
 $insertData = "INSERT INTO smartfarmdatabase
