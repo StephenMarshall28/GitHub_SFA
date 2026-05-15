@@ -57,7 +57,27 @@
                         <?php
                             require_once __DIR__ . '/db.php';
 $conn = getDbConnection();
+$createTable = "CREATE TABLE IF NOT EXISTS smartfarmdatabase (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    business_name VARCHAR(255),
+    product VARCHAR(255),
+    business_type VARCHAR(255),
+    state_district VARCHAR(255),
+    contact VARCHAR(255),
+    email VARCHAR(255),
+    category VARCHAR(255)
+)";
+mysqli_query($conn, $createTable);
 
+$insertData = "INSERT INTO smartfarmdatabase
+(business_name, product, business_type, state_district, contact, email, category)
+SELECT * FROM (
+    SELECT 'Green Valley Farm', 'Vegetables', 'Local Producer', 'Johor Bahru', '0123456789', 'green@farm.com', 'LOCAL'
+) AS tmp
+WHERE NOT EXISTS (
+    SELECT business_name FROM smartfarmdatabase WHERE business_name='Green Valley Farm'
+) LIMIT 1";
+mysqli_query($conn, $insertData);
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='LOCAL'";
                             $result = mysqli_query($conn,$sql);
 
