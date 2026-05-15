@@ -4,6 +4,22 @@ session_start();
 require_once __DIR__ . '/db.php';
 $conn = getDbConnection();
 
+$createAdminTable = "CREATE TABLE IF NOT EXISTS admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255)
+)";
+mysqli_query($conn, $createAdminTable);
+
+$insertAdmin = "INSERT INTO admin (username, password)
+SELECT * FROM (
+    SELECT 'admin', '1234'
+) AS tmp
+WHERE NOT EXISTS (
+    SELECT username FROM admin WHERE username='admin'
+) LIMIT 1";
+mysqli_query($conn, $insertAdmin);
+
 if(isset($_POST['login']))
 {
     $username = $_POST['username'];
