@@ -36,7 +36,7 @@
 
             <div class="para1">
     
-                <p>The database on this platform is designed to make it easier for users to access important contacts and resources within the farming community. It provides information that helps people connect with other food growers, plant growers, retailers, fertilizer suppliers, and farming equipment sellers in one convenient place. By bringing these resources together, the database supports better communication, easier business opportunities, and faster access to the products or services needed for successful farming. This feature is created to help users build useful connections, expand their farming network, and grow their agricultural activities more efficiently.</p>
+                <p>This database platform is designed to make it easier for users to access important contacts and resources within the farming and agriculture community. We provides information that helps people connect with other food growers, plant growers, retailers, fertilizer suppliers, and farming equipment sellers in one convenient place. By bringing these resources together, this database supports better communication, easier business opportunities, and faster access to the products or services needed for successful farming. Furthermore, it helps people to build useful connections, expand their farming network, and grow their agricultural activities more efficiently.</p>
             </div>
 
              <div class="submsg2">
