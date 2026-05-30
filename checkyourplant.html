@@ -110,13 +110,14 @@ function showPreview(file) {
 uploadForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    if (!fileInput.files.length) {
+    if (!fileInput.files || fileInput.files.length === 0) {
         resultBox.style.display = "block";
         resultText.innerText = "Please upload an image first.";
         return;
     }
 
-    const formData = new FormData(uploadForm);
+    const formData = new FormData();
+    formData.append("plantImage", fileInput.files[0]);
 
     resultBox.style.display = "block";
     resultText.innerText = "Analyzing image...";
