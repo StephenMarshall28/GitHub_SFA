@@ -93,7 +93,8 @@
                         </tr>
 
                         <?php
-                            $conn = mysqli_connect("localhost","root","","smartfarm");
+                            require_once __DIR__ . '/db.php';
+                            $conn = getDbConnection();
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='FLORIST'";
                             $result = mysqli_query($conn,$sql);
