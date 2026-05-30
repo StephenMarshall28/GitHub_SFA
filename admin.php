@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("localhost","root","","smartfarm");
+require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
 if(isset($_POST['login']))
 {
