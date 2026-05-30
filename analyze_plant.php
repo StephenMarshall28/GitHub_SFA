@@ -10,9 +10,23 @@ if (!$apiKey) {
     exit;
 }
 
-if (!isset($_FILES['plantImage']) || $_FILES['plantImage']['error'] !== UPLOAD_ERR_OK) {
+if (!isset($_FILES['plantImage'])) {
     http_response_code(400);
-    echo "Error: No image uploaded. Please upload a clear plant image.";
+    echo "Error: No image received by server.";
+    exit;
+}
+
+if ($_FILES['plantImage']['error'] !== UPLOAD_ERR_OK) {
+    $errorCode = $_FILES['plantImage']['error'];
+
+    http_response_code(400);
+
+    if ($errorCode == UPLOAD_ERR_INI_SIZE || $errorCode == UPLOAD_ERR_FORM_SIZE) {
+        echo "Error: Image file is too large. Please take a lower-resolution photo or crop the image and try again.";
+    } else {
+        echo "Error: Image upload failed. Upload error code: " . $errorCode;
+    }
+
     exit;
 }
 
