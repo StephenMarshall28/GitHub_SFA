@@ -121,10 +121,26 @@
         Send image to API
         Return response via AJAX
         */
-        setTimeout(()=>{
-            document.getElementById("resultText").innerText =
-            "🌱 Your plant looks healthy! Slight yellowing may indicate overwatering. Ensure proper drainage and moderate sunlight.";
-        }, 2000);
+        document.getElementById("uploadForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    document.getElementById("resultBox").style.display = "block";
+    document.getElementById("resultText").innerText = "Analyzing image...";
+
+    try {
+        const response = await fetch("analyze_plant.php", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.text();
+        document.getElementById("resultText").innerText = result;
+    } catch (error) {
+        document.getElementById("resultText").innerText = "Error analyzing image. Please try again.";
+    }
+});
     });
     </script>
 
