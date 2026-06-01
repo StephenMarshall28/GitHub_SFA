@@ -1,28 +1,3 @@
-<?php
-session_start();
-
-$conn = mysqli_connect("localhost","root","","smartfarm");
-
-if(isset($_POST['login']))
-{
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn,$sql);
-
-    if(mysqli_num_rows($result) == 1)
-    {
-        $_SESSION['admin'] = $username;
-        header("Location: admindashboard.php"); // next page    
-    }
-    else
-    {
-        $error = "Invalid username or password!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,34 +19,70 @@ if(isset($_POST['login']))
             </div>
 
             <div class="navigation">
-                  <nav>
+                <nav>
                         <a href="index.html">🏡Home</a>
-                        <a href="news.php">📰News</a>
+                        <a href="news.php" class="active">📰News</a>
                         <a href="indoorplants.html">🪴Indoor</a>
                         <a href="outdoorplants.html">🌿Outdoor</a>
                         <a href="flowers.html">🌻Flowers</a>
                         <a href="ourdatabase.php">🏢Suppliers</a>
                         <a href="checkyourplant.html">🔎Plant Analyzer</a>
-                        <a href="admin.php" class="active">👨🏻‍💼Admin</a>
+                        <a href="admin.php">👨🏻‍💼Admin</a>
                     </nav>
             </div>
 
-<div class="login-box">
-    <h2>Admin Login</h2>
+            <div class="news-section">
 
-    <?php if(isset($error)) echo "<p class='error'>$error</p>"; ?>
+<?php
 
-    <form method="POST">
-        <input type="text" name="username" placeholder="Enter Username" required>
-        <input type="password" name="password" placeholder="Enter Password" required>
-        <button type="submit" name="login">Login</button>
-    </form>
+$conn = mysqli_connect("localhost","root","","smartfarm");
+
+$result = mysqli_query($conn,
+"SELECT * FROM newsdatabase ORDER BY id DESC");
+
+while($row = mysqli_fetch_assoc($result))
+{
+?>
+
+    <div class="news-card">
+
+        <div class="news-image">
+            <img src="<?php echo $row['news_image']; ?>" alt="News Image">
+        </div>
+
+        <div class="news-content">
+
+            <h3>
+                <?php echo $row['news_title']; ?>
+            </h3>
+
+            <p>
+                <?php echo $row['news_summary']; ?>
+            </p>
+
+            <a href="<?php echo $row['news_source']; ?>"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                Read Full Article →
+            </a>
+
+        </div>
+
+    </div>
+
+<?php
+}
+?>
+
 </div>
 
-</body>
+
+            </body>
 
 <footer>
-<div class="copyrightinfo"><p>&copy; Copyright of Smart Farming Assistant 2026</p></div>
+    <div class="copyrightinfo"><p>&copy; Copyright of Smart Farming Assistant 2026</p></div>
 </footer>
+
 
 </html>
