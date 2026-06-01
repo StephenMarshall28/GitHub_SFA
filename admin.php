@@ -44,15 +44,16 @@ if(isset($_POST['login']))
             </div>
 
             <div class="navigation">
-                <nav>
-                    <a href="index.html">🏡Home</a>
-                    <a href="indoorplants.html">🪴Indoor Plants</a>
-                    <a href="outdoorplants.html">🌿Outdoor Plants</a>
-                    <a href="flowers.html">🌻Flowers</a>
-                    <a href="ourdatabase.php">💾Our Database</a>
-                    <a href="checkyourplant.html">🔎Check Your Plant</a>
-                    <a href="admin.php" class="active">👨🏻‍💼Admin</a>
-                </nav>
+                  <nav>
+                        <a href="index.html">🏡Home</a>
+                        <a href="news.php">📰News</a>
+                        <a href="indoorplants.html">🪴Indoor</a>
+                        <a href="outdoorplants.html">🌿Outdoor</a>
+                        <a href="flowers.html">🌻Flowers</a>
+                        <a href="ourdatabase.php">🏢Suppliers</a>
+                        <a href="checkyourplant.html">🔎Plant Analyzer</a>
+                        <a href="admin.php" class="active">👨🏻‍💼Admin</a>
+                    </nav>
             </div>
 
 <div class="login-box">

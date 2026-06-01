@@ -10,6 +10,35 @@
                 <link href="https://fonts.googleapis.com/css2?family=Geist&display=swap" rel="stylesheet">
             </head>
 
+            <script>
+                function searchPlants() {
+                let input = document.getElementById("plantSearch").value.toLowerCase();
+                let cards = document.getElementsByClassName("plant-link");
+                let noResults = document.getElementById("noResults");
+
+                let visibleCount = 0;
+
+                for (let i = 0; i < cards.length; i++) {
+                    let card = cards[i];
+                    let title = card.querySelector("h3").innerText.toLowerCase();
+
+                if (title.includes(input)) {
+                    card.style.display = "block";
+                    visibleCount++;
+                    } else {
+                    card.style.display = "none";
+                    }
+                }
+
+                // for "no results"
+                if (visibleCount === 0) {
+                noResults.style.display = "block";
+                } else {
+                noResults.style.display = "none";
+                }
+                }
+            </script>
+
             <body>
 
             <div class="titlebanner">
@@ -20,15 +49,30 @@
 
             <div class="navigation">
                 <nav>
-                    <a href="index.html">🏡Home</a>
-                    <a href="indoorplants.html" class="active">🪴Indoor Plants</a>
-                    <a href="outdoorplants.html">🌿Outdoor Plants</a>
-                    <a href="flowers.html">🌻Flowers</a>
-                    <a href="ourdatabase.php">💾Our Database</a>
-                    <a href="checkyourplant.html">🔎Check Your Plant</a>
-                    <a href="admin.php">👨🏻‍💼Admin</a>
-                </nav>
+                        <a href="index.html">🏡Home</a>
+                        <a href="news.php">📰News</a>
+                        <a href="indoorplants.html" class="active">🪴Indoor</a>
+                        <a href="outdoorplants.html">🌿Outdoor</a>
+                        <a href="flowers.html">🌻Flowers</a>
+                        <a href="ourdatabase.php">🏢Suppliers</a>
+                        <a href="checkyourplant.html">🔎Plant Analyzer</a>
+                        <a href="admin.php">👨🏻‍💼Admin</a>
+                    </nav>
             </div>
+
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="plantSearch" 
+                    placeholder="🔎 Search plants by name"
+                    onkeyup="searchPlants()"
+                >
+                <p id="noResults" class="no-results" style="display:none;">
+                ❌ No plants found
+                </p>
+            </div>
+
+
 <div class="plant-gallery">
 
     <a href="sweetbasil.html" class="plant-link">
@@ -79,6 +123,30 @@
     </div>
     </a>
 
+    <a href="carrot.html" class="plant-link">
+        <div class="plant-card">
+            <img src="img/carrot.jpg" alt="Carrot">
+            <h3>🥕 Carrot</h3>
+            <p>Crunchy root vegetable rich in vitamins and easy to grow.</p>
+        </div>
+        </a>
+    
+        <a href="strawberry.html" class="plant-link">
+        <div class="plant-card">
+            <img src="img/strawberry2.jpg" alt="Strawberry">
+            <h3>🍓 Strawberry</h3>
+            <p>Sweet juicy fruit loved for its bright color and fresh flavor.</p>
+        </div>
+        </a>
+    
+        <a href="beetroot.html" class="plant-link">
+        <div class="plant-card">
+            <img src="img/beetroot3.jpg" alt="Beet Root">
+            <h3>🫜 Beet Root</h3>
+            <p>Nutritious root vegetable with a deep red color and earthy taste.</p>
+        </div>
+        </a>
+
     <a href="lemongrass.html" class="plant-link">
     <div class="plant-card">
         <img src="img/Lemongrass.jpg" alt="Lemongrass">
@@ -102,6 +170,8 @@
         <p>Thrives in warm weather and easy to maintain.</p>
     </div>
     </a>
+
+    
 
 </div>
 

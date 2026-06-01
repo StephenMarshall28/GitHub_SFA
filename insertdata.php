@@ -51,9 +51,11 @@ if(isset($_POST['submit']))
             <div class="navigation">
                     <nav>
                         <a href="admindashboard.php">📊Dashboard</a>
+                        <a href="insertnews.php">➕Insert News</a>
                         <a href="insertdata.php" class="active">➕Insert Data</a>
-                        <a href="updatedata.php">🔄Update / Edit Data</a>
-                        <a href="deletedata.php">⛔Delete data</a>
+                        <a href="updatedata.php">🔄Update Data</a>
+                        <a href="deletedata.php">⛔Delete Data</a>
+                        <a href="deletenews.php">⛔Delete News</a>
                         <a href="index.html">➜]Logout</a>
                     </nav>
             </div>
