@@ -19,28 +19,44 @@
             </div>
 
             <div class="navigation">
-                    <nav>
+                     <nav>
                         <a href="index.html">🏡Home</a>
-                        <a href="indoorplants.html">🪴Indoor Plants</a>
-                        <a href="outdoorplants.html">🌿Outdoor Plants</a>
+                        <a href="news.php">📰News</a>
+                        <a href="indoorplants.html">🪴Indoor</a>
+                        <a href="outdoorplants.html">🌿Outdoor</a>
                         <a href="flowers.html">🌻Flowers</a>
-                        <a href="ourdatabase.php" class="active">💾Our Database</a>
-                        <a href="checkyourplant.html">🔎Check Your Plant</a>
+                        <a href="ourdatabase.php" class="active">🏢Suppliers</a>
+                        <a href="checkyourplant.html">🔎Plant Analyzer</a>
                         <a href="admin.php">👨🏻‍💼Admin</a>
-                    </nav>
+                 </nav>
             </div>
 
             <div class="submsg1">
-                <h2>Our Database</h2>
+                <h2>Suppliers</h2>
             </div>
 
             <div class="para1">
     
-                <p>This database platform is designed to make it easier for users to access important contacts and resources within the farming and agriculture community. We provides information that helps people connect with other food growers, plant growers, retailers, fertilizer suppliers, and farming equipment sellers in one convenient place. By bringing these resources together, this database supports better communication, easier business opportunities, and faster access to the products or services needed for successful farming. Furthermore, it helps people to build useful connections, expand their farming network, and grow their agricultural activities more efficiently.</p>
+                <p>This section of website is designed to help users easily find important contacts and resources within the farming and agriculture community. It provides useful information that allows visitors to connect with food growers, plant growers, retailers, fertilizer suppliers, and farming equipment sellers all in one convenient place. By bringing these suppliers and resources together, this platform supports better communication, creates more business opportunities, and provides faster access to products and services needed for successful farming. In addition, it helps users build valuable connections, expand their farming network, and grow their agricultural activities more efficiently.</p>
             </div>
 
+                <div class="supplier-search-container">
+                    <input 
+                    type="text" 
+                    id="supplierSearch" 
+                    placeholder="🔎 Search business, product, location, contact or email..."
+                    onkeyup="searchSuppliers()"
+                >
+
+                <p id="noResults" class="supplier-no-results" style="display:none;">
+                    ❌ No matching suppliers found
+                </p>
+            </div>
+
+            <div class="supplier-section">
+
              <div class="submsg2">
-                <h2>Local Food Producers Database</h2>
+                <h2>Local Food Producers</h2>
             </div>
 
             <div class="public-table-container">
@@ -74,9 +90,12 @@
                         ?>
                     </table>
             </div>
+            </div>
+
+                    <div class="supplier-section">
 
                     <div class="submsg2">
-                        <h2>Local Plantgrowers & Florist Database</h2>
+                        <h2>Local Plantgrowers and Florist</h2>
                     </div>
 
             <div class="public-table-container">
@@ -112,10 +131,12 @@
                         ?>
                     </table>
             </div>
+            </div>
 
 
+            <div class="supplier-section">
                     <div class="submsg2">
-                        <h2>Fertilizer Database</h2>
+                        <h2>Fertilizer</h2>
                     </div>
 
             <div class="public-table-container">
@@ -149,10 +170,11 @@
                         ?>
                     </table>
             </div>
+            </div>
 
-
+            <div class="supplier-section">
                     <div class="submsg2">
-                        <h2>Equipment Database</h2>
+                        <h2>Hardware and Equipment</h2>
                     </div>
 
 
@@ -187,9 +209,11 @@
                         ?>
                     </table>
             </div>
+            </div>
 
+            <div class="supplier-section">
                     <div class="submsg2">
-                        <h2>Retailers Database</h2>
+                        <h2>Retailers</h2>
                     </div>
 
 
@@ -224,7 +248,52 @@
                         ?>
                     </table>
             </div>
+            </div>
 
+            <script>
+function searchSuppliers() {
+    let input = document.getElementById("supplierSearch").value.toLowerCase();
+    let sections = document.getElementsByClassName("supplier-section");
+    let noResults = document.getElementById("noResults");
+
+    let totalVisible = 0;
+
+    for (let i = 0; i < sections.length; i++) {
+        let section = sections[i];
+        let rows = section.getElementsByTagName("tr");
+
+        let sectionMatch = false;
+
+        // check all rows inside this section
+        for (let j = 1; j < rows.length; j++) {
+            let row = rows[j];
+            let text = row.innerText.toLowerCase();
+
+            if (text.includes(input)) {
+                row.style.display = "";
+                sectionMatch = true;
+                totalVisible++;
+            } else {
+                row.style.display = "none";
+            }
+        }
+
+        // 🔥 show/hide entire section
+        if (sectionMatch || input === "") {
+            section.style.display = "";
+        } else {
+            section.style.display = "none";
+        }
+    }
+
+    // show "no results"
+    if (totalVisible === 0) {
+        noResults.style.display = "block";
+    } else {
+        noResults.style.display = "none";
+    }
+}
+</script>
         
            
 </body>

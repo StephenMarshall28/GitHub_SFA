@@ -76,11 +76,13 @@ if(isset($_POST['update']))
             </div>
 
             <div class="navigation">
-                    <nav>
+                     <nav>
                         <a href="admindashboard.php">📊Dashboard</a>
+                        <a href="insertnews.php">➕Insert News</a>
                         <a href="insertdata.php">➕Insert Data</a>
-                        <a href="updatedata.php" class="active">🔄Update / Edit Data</a>
-                        <a href="deletedata.php">⛔Delete data</a>
+                        <a href="updatedata.php" class="active">🔄Update Data</a>
+                        <a href="deletedata.php">⛔Delete Data</a>
+                        <a href="deletenews.php">⛔Delete News</a>
                         <a href="index.html">➜]Logout</a>
                     </nav>
             </div>
