@@ -9,6 +9,10 @@ RUN a2enmod rewrite
 # Copy project files into Apache web root
 COPY . /var/www/html/
 
+RUN mkdir -p /var/www/html/newsimg \
+    && chown -R www-data:www-data /var/www/html/newsimg \
+    && chmod -R 775 /var/www/html/newsimg
+
 # Render provides PORT. Apache must listen on that port.
 ENV PORT=10000
 EXPOSE 10000
