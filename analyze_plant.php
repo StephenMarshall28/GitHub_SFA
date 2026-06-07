@@ -53,7 +53,7 @@ $payload = [
             "content" => [
                 [
                     "type" => "input_text",
-                    "text" => "You are a Smart Farming Assistant. First determine whether the uploaded image is a plant. If not plant-related, reply only that it is not a plant image. If it is a plant image, return Plant Name, Scientific Name, Observed Condition, Recommended Action, Sunlight, Temperature, Watering, Soil Type, Fertilizer, and pH Level."
+                    "text" => "You are a Smart Farming Assistant. First determine whether the uploaded image is a plant. If not plant-related, reply only that it is not a plant image, Please upload a clear Plant image. If it is a plant image, return Plant Name, Scientific Name, Observed Condition, Recommended Action, Sunlight, Temperature, Watering, Soil Type, Fertilizer, and pH Level."
                 ],
                 [
                     "type" => "input_image",
