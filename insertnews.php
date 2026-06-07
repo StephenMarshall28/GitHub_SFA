@@ -54,7 +54,7 @@ $folder = "data:$mimeType;base64,$imageData";
     {
         echo "<script>alert('Error uploading news');</script>";
     }
-}
+
 
 ?>
 
