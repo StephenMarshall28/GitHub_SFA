@@ -22,10 +22,7 @@ if(isset($_POST['delete']))
         {
             $row = mysqli_fetch_assoc($check);
 
-            // delete image file (optional but good)
-            $image = $row['news_image'];
-            if(file_exists($image)) {
-                unlink($image);
+          
             }
 
             $sql = "DELETE FROM newsdatabase WHERE id='$id'";
