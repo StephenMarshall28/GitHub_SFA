@@ -1,6 +1,7 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","smartfarm");
+require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
 if(isset($_POST['submit']))
 {
@@ -10,12 +11,22 @@ if(isset($_POST['submit']))
 
     /* IMAGE UPLOAD */
 
-    $image_name = $_FILES['news_image']['name'];
+    $uploadDir = __DIR__ . "/newsimg/";
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0775, true);
+    }
+
+    $image_name = basename($_FILES['news_image']['name']);
+    $safe_name = time() . "_" . preg_replace('/[^A-Za-z0-9._-]/', '_', $image_name);
     $temp_name = $_FILES['news_image']['tmp_name'];
 
-    $folder = "newsimg/" . $image_name;
+    $folder = "newsimg/" . $safe_name;
+    $targetPath = $uploadDir . $safe_name;
 
-    move_uploaded_file($temp_name, $folder);
+    if (!move_uploaded_file($temp_name, $targetPath)) {
+        echo "<script>alert('Error uploading image file');</script>";
+        exit;
+    }
 
     /* INSERT DATABASE */
 

@@ -71,7 +71,8 @@
                         </tr>
 
                         <?php
-                            $conn = mysqli_connect("localhost","root","","smartfarm");
+                            require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='LOCAL'";
                             $result = mysqli_query($conn,$sql);
@@ -111,7 +112,8 @@
                         </tr>
 
                         <?php
-                            $conn = mysqli_connect("localhost","root","","smartfarm");
+                            require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='FLORIST'";
                             $result = mysqli_query($conn,$sql);
@@ -151,7 +153,8 @@
                         </tr>
 
                         <?php
-                            $conn = mysqli_connect("localhost","root","","smartfarm");
+                            require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='FERTILIZER'";
                             $result = mysqli_query($conn,$sql);
@@ -190,7 +193,8 @@
                         </tr>
 
                         <?php
-                            $conn = mysqli_connect("localhost","root","","smartfarm");
+                            require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='EQUIPMENT'";
                             $result = mysqli_query($conn,$sql);
@@ -229,7 +233,8 @@
                         </tr>
 
                         <?php
-                            $conn = mysqli_connect("localhost","root","","smartfarm");
+                            require_once __DIR__ . '/db.php';
+$conn = getDbConnection();
 
                             $sql = "SELECT * FROM smartfarmdatabase WHERE category='RETAILERS'";
                             $result = mysqli_query($conn,$sql);
