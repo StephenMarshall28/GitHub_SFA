@@ -11,9 +11,18 @@ if(isset($_POST['submit']))
 
     /* IMAGE UPLOAD */
 
-    $uploadDir = __DIR__ . "/newsimg/";
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0775, true);
+    $tmpPath = $_FILES['news_image']['tmp_name'];
+    $mimeType = mime_content_type($tmpPath);
+
+    $allowed = ['image/jpeg', 'image/png', 'image/webp'];
+
+    if (!in_array($mimeType, $allowed)) {
+    echo "<script>alert('Please upload JPG, PNG, or WEBP only');</script>";
+    exit;
+}
+
+$imageData = base64_encode(file_get_contents($tmpPath));
+$folder = "data:$mimeType;base64,$imageData";
     }
 
     $image_name = basename($_FILES['news_image']['name']);
