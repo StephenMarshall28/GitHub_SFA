@@ -23,19 +23,9 @@ if(isset($_POST['submit']))
 
 $imageData = base64_encode(file_get_contents($tmpPath));
 $folder = "data:$mimeType;base64,$imageData";
-    }
+    
 
-    $image_name = basename($_FILES['news_image']['name']);
-    $safe_name = time() . "_" . preg_replace('/[^A-Za-z0-9._-]/', '_', $image_name);
-    $temp_name = $_FILES['news_image']['tmp_name'];
-
-    $folder = "newsimg/" . $safe_name;
-    $targetPath = $uploadDir . $safe_name;
-
-    if (!move_uploaded_file($temp_name, $targetPath)) {
-        echo "<script>alert('Error uploading image file');</script>";
-        exit;
-    }
+   
 
     /* INSERT DATABASE */
 
@@ -55,7 +45,7 @@ $folder = "data:$mimeType;base64,$imageData";
         echo "<script>alert('Error uploading news');</script>";
     }
 
-
+}
 ?>
 
 <!DOCTYPE html>
