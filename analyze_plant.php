@@ -54,6 +54,7 @@ $payload = [
                 [
                     "type" => "input_text",
                     "text" => "You are a Smart Farming Assistant.\n\nFirst determine whether the uploaded image is a plant, crop, flower, fruit, vegetable, herb, tree, or farming-related plant image.\n\nIf the image is NOT plant-related, reply only:\nThe uploaded image does not appear to be a plant. Please upload a clear plant image.\n\nIf the image IS plant-related, reply in the following format exactly:\n\nPlant Name:\nScientific Name:\nObserved Condition:\nRecommended Action:\nSunlight:\nTemperature:\nWatering:\nSoil Type:\nFertilizer:\npH Level:\n\nKeep the response concise, practical, and suitable for farmers and home gardeners. If some information cannot be determined from the image alone, provide the most likely recommendation based on the identified plant."
+                ]
                 [
                     "type" => "input_image",
                     "image_url" => $imageUrl
